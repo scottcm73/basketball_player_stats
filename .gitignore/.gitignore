@@ -3,3 +3,4 @@
 .DS_Store
 secret.py
 secret*.py
+Pipfile.lock

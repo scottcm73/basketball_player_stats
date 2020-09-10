@@ -54,6 +54,8 @@ An initial data was taken from Kaggle.com.
 
 Baruch, J. Basketball Players Stats per Season - 49 Leagues. Kaggle.com. Retrieved from https://www.kaggle.com/jacobbaruch/basketball-players-stats-per-season-49-leagues on Sept. 9, 2020.
 
+Pandas DataFrames - Writing To And Reading From MySQL Table. pythontic.com. Retrieved from https://pythontic.com/pandas/serialization/mysql on Sept. 10, 2020.
+
 
 
 

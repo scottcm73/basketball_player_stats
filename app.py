@@ -8,8 +8,6 @@ app = Flask(__name__)
 
 def hello_world():
     the_dict=make_dict()
-    
-    print(the_dict)
     return jsonify(the_dict)
 
 @app.route('/')

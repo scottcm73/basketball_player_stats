@@ -17,15 +17,21 @@ function make_key_array(data){
     }  
     return keys
 };
-
-function make_value_arr_for_key(data, keys, key){
-    var result=data.map(item=> 
-        { 
-            values = data.map(({season}) => season);
+function make_value_arr_for_key(data, keys, key, player){
+    values=[]
+    
+    Object.keys(data).forEach(k => {
+        // it should only go for 9 seasons in this data.
+        if (values.length<10){
+            values.push(data[k][key])
         }
-    )
-return values
+        
+        if (key==="season"){values=[...new Set(values)]}
+      });
+    // Set is used to make sure there are no repeats
+    return values
 };
+
 function getData(){
     Plotly.d3.json('/data', function(data)
     // data is an object with an array of dictionaries, not an actual json
@@ -33,19 +39,24 @@ function getData(){
         var keys=make_key_array(data)
         console.log(keys)
         var key="season"
-        var value_array=make_value_arr_for_key(data, keys, key)
-
-        console.log(window.value_array)
+        var key2="points"
+        var player="Kevin Durant"
+  
+        var value_arrayX=make_value_arr_for_key(data, keys, key, player);
+        var value_arrayY=make_value_arr_for_key(data, keys, key2, player);
+        console.log(value_arrayX)
+        console.log(value_arrayY);
+        make_graphs(data, value_arrayX, value_arrayY)
     }
        
     )};
 
 getData()
-
+function make_graphs(data, value_arrayX, value_arrayY ){
 trace1 = {
     type: 'bar',
-    x: [ "2009 - 2010", "2010 - 2011", "2011 - 2012", "2012 - 2013"],
-    y: [10, 15, 13, 17],
+    x: value_arrayX,
+    y: value_arrayY,
     mode: 'lines',
     name: 'Red',
     line: {
@@ -54,23 +65,13 @@ trace1 = {
     }
   };
   
-  trace2 = {
-    type: 'bar',
-    x: [ "2009 - 2010", "2010 - 2011", "2011 - 2012", "2012 - 2013"],
-    y: [12, 9, 15, 12],
-    mode: 'lines',
-    name: 'Blue',
-    line: {
-      color: 'rgb(55, 128, 191)',
-      width: 1
-    }
-  };
   
   var layout = {
     width: 500,
     height: 500
   };
   
-  var data2 = [trace1, trace2];
+  var data2 = [trace1];
   
-  Plotly.newPlot('myDiv', data2, layout);
+  Plotly.newPlot('myDiv', data2, layout)
+};

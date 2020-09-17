@@ -19,8 +19,10 @@ function make_key_array(data){
 };
 function make_value_arr_for_key(data, keys, key, player){
     values=[]
-    
-    Object.keys(data).forEach(k => {
+    var newArray = data.filter(function (el) {
+        return el["player"] === player;
+      });
+    Object.keys(newArray).forEach(k => {
         // it should only go for 9 seasons in this data.
         if (values.length<10){
             values.push(data[k][key])

@@ -56,7 +56,7 @@ class PlayerStats(Base):
 
 
 def make_dict():
-    all_player_stats=session.query(PlayerStats).filter(PlayerStats.player == "Kevin Durant").all()
+    all_player_stats=session.query(PlayerStats).all()
     the_dict=DictMixIn
     this_dict=[]
     for player_stats in all_player_stats:

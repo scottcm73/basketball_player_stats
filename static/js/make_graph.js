@@ -16,10 +16,10 @@ function make_key_array(data){
   }  
   return keys
 };
-function make_value_arr_for_key(data, keys, key, player, stage){
+function make_value_arr_for_key(data, keys, key, player, stage, season){
   values=[]
   var newArray = data.filter(function (el) {
-      return el["player"] == player & el["stage"]== stage;
+      return el["player"] == player & el["stage"]== stage & el["season"]==season;
     });
   console.log(newArray)
   console.log("X")
@@ -44,13 +44,16 @@ function getData(){
       console.log(keys)
       var key="season"
       var key2="points"
-      var player="Kevin Durant"
+      var player="Kobe Bryant"
       var stage="Regular_Season"
-      var value_arrayX=make_value_arr_for_key(data, keys, key, player, stage);
-      var value_arrayY=make_value_arr_for_key(data, keys, key2, player, stage);
+      var season="2009 - 2010"
+      var value_arrayX=make_value_arr_for_key(data, keys, key, player, stage, season);
+      var value_arrayY=make_value_arr_for_key(data, keys, key2, player, stage, season);
       console.log(value_arrayX)
       console.log(value_arrayY);
       make_graphs(data, value_arrayX, value_arrayY)
+
+
   }
      
   )};
@@ -64,7 +67,7 @@ trace1 = {
   mode: 'lines',
   name: 'Red',
   line: {
-    color: 'rgb(219, 64, 82)',
+
     width: 3
   }
 };
@@ -72,7 +75,7 @@ trace1 = {
 
 var layout = {
   width: 500,
-  height: 500
+  height: 800
 };
 
 var data2 = [trace1];

@@ -79,7 +79,7 @@ Session=sessionmaker(bind=engine)
 session=Session()
 
 the_dict=make_dict()
-print(the_dict)
+
 session.close()
 
 

@@ -18,7 +18,7 @@ function make_key_array(data){
 };
 function make_value_arr_for_key(data, keys, key, player, stage, seasons){
   values=[]
-  if (seasons.length>1){
+ 
   let newArray = data.filter(function (el) {
       return el["player"] == player & el["stage"]== stage & seasons.includes(el["season"]);
     });
@@ -30,22 +30,9 @@ function make_value_arr_for_key(data, keys, key, player, stage, seasons){
       }
      
 
-    })
-  }else{
-    let newArray = data.filter(function (el) {
-      return el["player"] == player & el["stage"]== stage & el["season"]==seasons;
+  
+    
     });
-  Object.keys(newArray).forEach(k => {
-
-      
-      if(newArray[k].hasOwnProperty(key)){
-          values.push(newArray[k][key])
-      }
-     
-
-    })
-
-    };
   // Set is used to make sure there are no repeats
   return values
 };

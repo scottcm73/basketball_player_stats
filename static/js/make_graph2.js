@@ -16,11 +16,11 @@ function make_key_array(data){
   }  
   return keys
 };
-function make_value_arr_for_key(data, keys, key, player, stage, seasons){
+function make_value_arr_for_key(data, keys, key, players, stage, seasons){
   values=[]
  
   let newArray = data.filter(function (el) {
-      return el["player"] == player & el["stage"]== stage & seasons.includes(el["season"]);
+      return players.includes(el["player"]) & el["stage"]== stage & seasons.includes(el["season"]);
     });
   Object.keys(newArray).forEach(k => {
 
@@ -41,14 +41,14 @@ function make_traces(data){
  let value_arrays=[]
  let key="season";
  let key2="points";
- let player="Kobe Bryant";
+ let players=["Kobe Bryant"];
  let stage="Regular_Season";
- let seasons=["2009 - 2010", "2010 - 2011"];
+ let seasons=["2009 - 2010", "2010 - 2011", "2011 - 2012"];
  let key_array = ["assists", "blocks", 
- "defensive_rebounds", "field_goal_attempts", "field_goals_made", "free_throw_attempts"]
- //"free_throws_made", "games_played", "height_cm", "minutes_played", "offensive_rebounds", 
- //"personal_fouls", "points", "rebounds", "steals", "three_pointer_attempts", 
- //"three_pointers_made", "turnovers"];
+ "defensive_rebounds", "field_goal_attempts", "field_goals_made", "free_throw_attempts",
+ "free_throws_made", "games_played", "minutes_played", "offensive_rebounds", 
+ "personal_fouls", "points", "rebounds", "steals", "three_pointer_attempts", 
+ "three_pointers_made", "turnovers"];
  
   let this_key="season";
 
@@ -56,7 +56,7 @@ function make_traces(data){
   var valuesY
   for (key in key_array){
   console.log(key_array[key])
-  valuesY=make_value_arr_for_key(data, keys, key_array[key], player, stage, seasons);
+  valuesY=make_value_arr_for_key(data, keys, key_array[key], players, stage, seasons);
   // let layout = {
   // width: 1600,
   // 
@@ -78,7 +78,7 @@ function make_traces(data){
   var data = t_array;
   
   var layout = {barmode: 'group', 
-      title: player,
+      title: players,
       height: 800,
       width: 1200,
       hovermode:'closest',};

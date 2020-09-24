@@ -20,7 +20,7 @@ function make_value_arr_for_key(data, keys, key, player, stage, seasons){
   values=[]
   if (seasons.length>1){
   let newArray = data.filter(function (el) {
-      return el["player"] == player & el["stage"]== stage & el["season"]==seasons;
+      return el["player"] == player & el["stage"]== stage & seasons.includes(el["season"]);
     });
   Object.keys(newArray).forEach(k => {
 
@@ -56,7 +56,7 @@ function make_traces(data){
  let key2="points";
  let player="Kobe Bryant";
  let stage="Regular_Season";
- let seasons=["2009 - 2010"];
+ let seasons=["2009 - 2010", "2010 - 2011"];
  let key_array = ["assists", "blocks", 
  "defensive_rebounds", "field_goal_attempts", "field_goals_made", "free_throw_attempts"]
  //"free_throws_made", "games_played", "height_cm", "minutes_played", "offensive_rebounds", 

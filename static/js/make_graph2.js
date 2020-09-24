@@ -16,10 +16,11 @@ function make_key_array(data){
   }  
   return keys
 };
-function make_value_arr_for_key(data, keys, key, player, stage, season){
+function make_value_arr_for_key(data, keys, key, player, stage, seasons){
   values=[]
+  if (seasons.length>1){
   let newArray = data.filter(function (el) {
-      return el["player"] == player & el["stage"]== stage & el["season"]==season;
+      return el["player"] == player & el["stage"]== stage & el["season"]==seasons;
     });
   Object.keys(newArray).forEach(k => {
 
@@ -29,7 +30,22 @@ function make_value_arr_for_key(data, keys, key, player, stage, season){
       }
      
 
+    })
+  }else{
+    let newArray = data.filter(function (el) {
+      return el["player"] == player & el["stage"]== stage & el["season"]==seasons;
     });
+  Object.keys(newArray).forEach(k => {
+
+      
+      if(newArray[k].hasOwnProperty(key)){
+          values.push(newArray[k][key])
+      }
+     
+
+    })
+
+    };
   // Set is used to make sure there are no repeats
   return values
 };
@@ -40,7 +56,7 @@ function make_traces(data){
  let key2="points";
  let player="Kobe Bryant";
  let stage="Regular_Season";
- let season="2009 - 2010";
+ let seasons=["2009 - 2010"];
  let key_array = ["assists", "blocks", 
  "defensive_rebounds", "field_goal_attempts", "field_goals_made", "free_throw_attempts"]
  //"free_throws_made", "games_played", "height_cm", "minutes_played", "offensive_rebounds", 
@@ -49,11 +65,11 @@ function make_traces(data){
  
   let this_key="season";
 
-  let valuesX=make_value_arr_for_key(data, keys, this_key, player, stage, season);
+  let valuesX=seasons;
   var valuesY
   for (key in key_array){
   console.log(key_array[key])
-  valuesY=make_value_arr_for_key(data, keys, key_array[key], player, stage, season);
+  valuesY=make_value_arr_for_key(data, keys, key_array[key], player, stage, seasons);
   // let layout = {
   // width: 1600,
   // 

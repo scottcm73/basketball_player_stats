@@ -42,10 +42,10 @@ function make_traces(data){
  let stage="Regular_Season";
  let season="2009 - 2010";
  let key_array = ["assists", "blocks", 
- "defensive_rebounds", "field_goal_attempts", "field_goals_made", "free_throw_attempts", 
- "free_throws_made", "games_played", "height_cm", "minutes_played", "offensive_rebounds", 
- "personal_fouls", "points", "rebounds", "steals", "three_pointer_attempts", 
- "three_pointers_made", "turnovers"];
+ "defensive_rebounds", "field_goal_attempts", "field_goals_made", "free_throw_attempts"]
+ //"free_throws_made", "games_played", "height_cm", "minutes_played", "offensive_rebounds", 
+ //"personal_fouls", "points", "rebounds", "steals", "three_pointer_attempts", 
+ //"three_pointers_made", "turnovers"];
  
   let this_key="season";
 

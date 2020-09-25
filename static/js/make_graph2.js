@@ -53,10 +53,29 @@ function make_traces(data){
   let this_key="season";
 
   let valuesX=seasons;
+
+combos = [] //or combos = new Array(2);
+thisX=""
+combos = [] //or combos = new Array(2);
+
+for(var i = 0; i < seasons.length; i++)
+{
+     for(var j = 0; j < players.length; j++)
+     {
+        //you would access the element of the array as array1[i] and array2[j]
+        //create and array with as many elements as the number of arrays you are to combine
+        var thisX=seasons[i] + " -- " + players[j]
+        //add them in
+        //you could have as many dimensions as you need
+        combos.push(thisX)
+     }
+}
+console.log(combos)
   var valuesY
   for (key in key_array){
+    for (player in players){
   console.log(key_array[key])
-  valuesY=make_value_arr_for_key(data, keys, key_array[key], players, stage, seasons);
+  valuesY=make_value_arr_for_key(data, keys, key_array[key], players[player], stage, seasons);
   // let layout = {
   // width: 1600,
   // 
@@ -64,7 +83,7 @@ function make_traces(data){
   // };
   // Plotly.newPlot('myDiv', trace, layout)
   var trace1 = {
-    x: valuesX,
+    x: combos,
     y: valuesY,
 
     
@@ -73,7 +92,7 @@ function make_traces(data){
   };
   
   t_array.push(trace1)
-};
+}};
   console.log(t_array);
   var data = t_array;
   

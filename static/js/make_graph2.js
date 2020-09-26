@@ -1,3 +1,4 @@
+
 function make_key_array(data){
   keys=[]    
   for(let obj in data){
@@ -41,14 +42,18 @@ function make_traces(data){
  let value_arrays=[]
  let key="season";
  let key2="points";
- let players=["Kobe Bryant"];
+ let players=["Kevin Durant", "Kobe Bryant"];
  let stage="Regular_Season";
  let seasons=["2009 - 2010", "2010 - 2011", "2011 - 2012"];
- let key_array = ["assists", "blocks", 
- "defensive_rebounds", "field_goal_attempts", "field_goals_made", "free_throw_attempts",
- "free_throws_made", "games_played", "minutes_played", "offensive_rebounds", 
- "personal_fouls", "points", "rebounds", "steals", "three_pointer_attempts", 
- "three_pointers_made", "turnovers"];
+ let key_array = [
+//"assists", "blocks", 
+//"defensive_rebounds", "field_goal_attempts", "field_goals_made", "free_throw_attempts",
+// "free_throws_made", 
+ "games_played", "minutes_played", 
+ //"offensive_rebounds", "personal_fouls", 
+ "points"]; 
+ //"rebounds", "steals", "three_pointer_attempts", 
+ //"three_pointers_made", "turnovers"];
  
   let this_key="season";
 
@@ -73,9 +78,9 @@ for(var i = 0; i < seasons.length; i++)
 console.log(combos)
   var valuesY
   for (key in key_array){
-    for (player in players){
+
   console.log(key_array[key])
-  valuesY=make_value_arr_for_key(data, keys, key_array[key], players[player], stage, seasons);
+  valuesY=make_value_arr_for_key(data, keys, key_array[key], players, stage, seasons);
   // let layout = {
   // width: 1600,
   // 
@@ -92,7 +97,7 @@ console.log(combos)
   };
   
   t_array.push(trace1)
-}};
+};
   console.log(t_array);
   var data = t_array;
   

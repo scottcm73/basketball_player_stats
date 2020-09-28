@@ -23,6 +23,22 @@ function populate_option_selector(sid, optionsData){
 
 
 }
+function make_optionArray(data, key){
+  var keyArray=data.map(d=>d[key]);
+  
+  var keyArray=new Set(keyArray)
+  keyArray = [...keyArray]; 
+  console.log(keyArray)
+
+var result = keyArray.map(e=> {
+  return {value: e, text: e}
+})
+  result.unshift({value: "All", text: "All"})
+  console.log(result)
+
+  return result
+};
+
 function make_key_array(data){
   keys=[]    
   for(let obj in data){
@@ -47,6 +63,7 @@ function make_value_arr_for_key(data, keys, key, players, stage, seasons){
   let newArray = data.filter(function (el) {
       return players.includes(el["player"]) & el["stage"]== stage & seasons.includes(el["season"]);
     });
+ 
   Object.keys(newArray).forEach(k => {
 
       
@@ -62,22 +79,7 @@ function make_value_arr_for_key(data, keys, key, players, stage, seasons){
   return values
 };
 
-// Return an array of the selected opion values
-// select is an HTML select element
-function GetSelectValues(select) {
-  var result = [];
-  var options = select && select.options;
-  var opt;
 
-  for (var i=0, iLen=options.length; i<iLen; i++) {
-    opt = options[i];
-
-    if (opt.selected) {
-      result.push(opt.value || opt.text);
-    }
-  }
-  return result;
-}
 function make_traces(data){
  let t_array=[]
  let value_arrays=[]
@@ -166,12 +168,23 @@ function getData(){
       console.log(data)
       let keys=make_key_array(data)
       make_traces(data)
-     
-
+      key="player"
+      optionsData=make_optionArray(data, key)
+      var sid="#players"
+      populate_option_selector(sid, optionsData)
+      key="team"
+      optionsData=make_optionArray(data, key)
+      sid="#teams"
+      populate_option_selector(sid, optionsData)
+      key="season"
+      optionsData=make_optionArray(data, key)
+      sid="#seasons"
+      populate_option_selector(sid, optionsData)
   }
      
   )};
 let optionsData=[
+  {value: "All", text: "All"},
   {value: "assists", text: "assists"},
   {value: "blocks", text: "blocks"},
   {value: "defensive_rebounds", text: "defensive rebounds"},

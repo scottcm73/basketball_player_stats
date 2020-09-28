@@ -1,4 +1,28 @@
+function populate_option_selector(sid, optionsData){
+  
+  
+  var selectTag = d3.select(sid);
 
+    //we have select all options tags from inside select tag (which there are 0 atm)
+    //and assigned data as to be the base of modelling that selection.
+    var options = selectTag.selectAll('option')
+      .data(optionsData);
+
+    //d3 sees we have less elements (0) than the data (2), so we are tasked to create
+    //these missing inside the `options.enter` pseudo selection.
+    //if we had some elements from before, they would be reused, and we could access their
+    //selection with just `options`
+    options.enter()
+      .append('option')
+      .attr('value', function(d) {
+        return d.value;
+      })
+      .text(function(d) {
+        return d.text;
+      });
+
+
+}
 function make_key_array(data){
   keys=[]    
   for(let obj in data){
@@ -147,5 +171,26 @@ function getData(){
   }
      
   )};
+let optionsData=[
+  {value: "assists", text: "assists"},
+  {value: "blocks", text: "blocks"},
+  {value: "defensive_rebounds", text: "defensive rebounds"},
+  {value: "field_goal_attempts", text: "field goal attempts"},
+  {value: "field_goals_made", text: "field goals made"},
+  {value: "free_throw_attempts", text: "free throw attempts"},
+  {value: "free_throws_made", text: "free throws made"},
+  {value: "games_played", text: "games played"},
+  {value: "offensive_rebounds", text: "offensive rebounds"},
+  {value: "minutes_played", text: "minutes played"},
+  {value: "personal_fouls", text: "personal fouls"},
+  {value: "rebounds", text: "rebounds"},
+  {value: "points", text: "points"},
+  {value: "steals", text: "steals"},
+  {value: "three_pointer_attempts", text: "three pointer attempts"},
+  {value: "three_pointers_made", text: "three pointers made"},
+  {value: "turnovers", text: "turnovers"}
+    ];
+let sid="#stats"
+populate_option_selector(sid, optionsData)
 
 getData()

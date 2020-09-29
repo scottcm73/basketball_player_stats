@@ -161,49 +161,45 @@ console.log(combos)
 };
 
 
-function getData(){
-  Plotly.d3.json('/data', function(data)
-  // data is an object with an array of dictionaries, not an actual json
-  {
-      console.log(data)
-      let keys=make_key_array(data)
-      make_traces(data)
-      key="player"
-      optionsData=make_optionArray(data, key)
-      var sid="#players"
-      populate_option_selector(sid, optionsData)
-      key="team"
-      optionsData=make_optionArray(data, key)
-      sid="#teams"
-      populate_option_selector(sid, optionsData)
-      key="season"
-      optionsData=make_optionArray(data, key)
-      sid="#seasons"
-      populate_option_selector(sid, optionsData)
-  }
-     
-  )};
-let optionsData=[
-  {value: "All", text: "All"},
-  {value: "assists", text: "assists"},
-  {value: "blocks", text: "blocks"},
-  {value: "defensive_rebounds", text: "defensive rebounds"},
-  {value: "field_goal_attempts", text: "field goal attempts"},
-  {value: "field_goals_made", text: "field goals made"},
-  {value: "free_throw_attempts", text: "free throw attempts"},
-  {value: "free_throws_made", text: "free throws made"},
-  {value: "games_played", text: "games played"},
-  {value: "offensive_rebounds", text: "offensive rebounds"},
-  {value: "minutes_played", text: "minutes played"},
-  {value: "personal_fouls", text: "personal fouls"},
-  {value: "rebounds", text: "rebounds"},
-  {value: "points", text: "points"},
-  {value: "steals", text: "steals"},
-  {value: "three_pointer_attempts", text: "three pointer attempts"},
-  {value: "three_pointers_made", text: "three pointers made"},
-  {value: "turnovers", text: "turnovers"}
-    ];
-let sid="#stats"
-populate_option_selector(sid, optionsData)
 
-getData()
+  window.onload=function(){
+    Plotly.d3.json('/data', function(data)
+      // data is an object with an array of dictionaries, not an actual json
+      {
+          console.log(data)
+    
+          let keys=make_key_array(data)
+          make_traces(data)
+        
+      
+    console.log(data)
+    var optionsData=[
+      {value: "All", text: "All"},
+      {value: "assists", text: "assists"},
+      {value: "blocks", text: "blocks"},
+      {value: "defensive_rebounds", text: "defensive rebounds"},
+      {value: "field_goal_attempts", text: "field goal attempts"},
+      {value: "field_goals_made", text: "field goals made"},
+      {value: "free_throw_attempts", text: "free throw attempts"},
+      {value: "free_throws_made", text: "free throws made"},
+      {value: "games_played", text: "games played"},
+      {value: "offensive_rebounds", text: "offensive rebounds"},
+      {value: "minutes_played", text: "minutes played"},
+      {value: "personal_fouls", text: "personal fouls"},
+      {value: "rebounds", text: "rebounds"},
+      {value: "points", text: "points"},
+      {value: "steals", text: "steals"},
+      {value: "three_pointer_attempts", text: "three pointer attempts"},
+      {value: "three_pointers_made", text: "three pointers made"},
+      {value: "turnovers", text: "turnovers"}
+        ];
+    var sid="#stats"
+    populate_option_selector(sid, optionsData)
+    
+    key=["player", "team", "season"]
+    sid=["#players", "#teams", "#seasons"]
+    //key and sid have same length
+    for (var i=0; i < key.length; i++){
+    optionsData=make_optionArray(data, key[i])
+    populate_option_selector(sid[i], optionsData)
+    }})};

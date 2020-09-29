@@ -4,7 +4,7 @@
 
 <meta charset="UTF-8">
 
-<script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+<script src="{{ url_for('static', filename='js/plotly-latest.min.js') }}"></script>
 <script src="{{ url_for('static', filename='js/d3.v6.min.js') }}"></script>
     <title>My Webpage</title>
 
@@ -30,7 +30,7 @@
       
     </select> 
     <label for="sm_stats">Choose stats:</label>
-    <select name="stats" id="stats" multiple>
+    <select name="stats" id="stats" multiple onchange="getstats()">
     
       
     </select> 

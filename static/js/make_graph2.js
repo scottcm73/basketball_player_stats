@@ -159,8 +159,34 @@ console.log(combos)
 
 
 };
+function getseasons(){
+  var selectedSeasons = []
+  for (var seaoption of d3.select('#seasons').property("selectedOptions")){
+    if (seaoption.value!="All"){
+    selectedSeasons.push(seaoption.value)
+    }
+  }
+  console.log(selectedSeasons)
+};
 
-
+function getplayers(){
+  var selectedPlayers = []
+  for (var poption of d3.select('#players').property("selectedOptions")){
+    if (poption.value!="All"){
+    selectedPlayers.push(poption.value)
+    }
+  }
+  console.log(selectedPlayers)
+};
+function getstats(){
+  var selectedStats = []
+  for (var soption of d3.select('#stats').property("selectedOptions")){
+    if (soption.value!="All"){
+    selectedStats.push(soption.value)
+    }
+  }
+  console.log(selectedStats)
+};
 
   window.onload=function(){
     Plotly.d3.json('/data', function(data)

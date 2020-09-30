@@ -19,13 +19,13 @@
     
     <label for="players">Choose a player:</label>
     
-    <select name="sm_players" id="players" multiple>
+    <select name="sm_players" id="players" multiple onchange="getplayers()">
     
       
     </select> 
     <label for="sm_seasons">Choose a season:</label>
     
-    <select name="seasons" id="seasons" multiple>
+<select name="seasons" id="seasons" multiple onchange="getseasons()">
     
       
     </select> 
@@ -39,7 +39,7 @@
   
   
 
-    <script src="{{ url_for('static', filename='js/make_graph2.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/make_graph2.js') }}" onload="thisload()"></script>
     <title>My Webpage</title>
 
 </body>

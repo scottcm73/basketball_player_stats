@@ -166,7 +166,10 @@ function getseasons(){
     selectedSeasons.push(seaoption.value)
     }
   }
-  console.log(selectedSeasons)
+  
+  console.log(selectedSeasons);
+  sessionStorage.setItem("sseasons", JSON.stringify(selectedSeasons));
+  console.log(JSON.parse(sessionStorage.getItem("sseasons")));
 };
 
 function getplayers(){
@@ -177,6 +180,10 @@ function getplayers(){
     }
   }
   console.log(selectedPlayers)
+  sessionStorage.setItem("splayers", JSON.stringify(selectedPlayers));
+  console.log(JSON.parse(sessionStorage.getItem("splayers")));
+
+
 };
 function getstats(){
   var selectedStats = []
@@ -185,7 +192,10 @@ function getstats(){
     selectedStats.push(soption.value)
     }
   }
+  
   console.log(selectedStats)
+  sessionStorage.setItem("sstats", JSON.stringify(selectedStats));
+  console.log(JSON.parse(sessionStorage.getItem("sstats")));
 };
 
 function thisload(){
@@ -193,11 +203,13 @@ function thisload(){
       // data is an object with an array of dictionaries, not an actual json
       {
           console.log(data)
-    
+  
+       
           let keys=make_key_array(data)
+      
           make_traces(data)
         
-      
+
     console.log(data)
     var optionsData=[
       {value: "All", text: "All"},
@@ -228,4 +240,5 @@ function thisload(){
     for (var i=0; i < key.length; i++){
     optionsData=make_optionArray(data, key[i])
     populate_option_selector(sid[i], optionsData)
+    
     }})};

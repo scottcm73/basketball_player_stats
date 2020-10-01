@@ -202,6 +202,7 @@ function getseasons(){
   console.log(selectedSeasons);
   sessionStorage.setItem("sseasons", JSON.stringify(selectedSeasons));
 
+
 };
 
 function getplayers(){
@@ -214,7 +215,7 @@ function getplayers(){
   console.log(selectedPlayers)
   sessionStorage.setItem("splayers", JSON.stringify(selectedPlayers));
  
-
+  
 
 };
 function getstats(){
@@ -228,13 +229,20 @@ function getstats(){
   console.log(selectedStats)
   sessionStorage.setItem("sstats", JSON.stringify(selectedStats));
 
+
+
+};
+function doreload(){
+  window.location.reload()
 };
 
 function thisload(){
     Plotly.d3.json('/data', function(data)
       // data is an object with an array of dictionaries, not an actual json
       {
-          console.log(data)
+          
+        
+        console.log(data)
   
        
           let keys=make_key_array(data)

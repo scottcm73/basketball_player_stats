@@ -12,5 +12,7 @@ flask = "*"
 sqlalchemy = "*"
 pymysql = "*"
 gunicorn = "*"
+pip = "*"
 [requires]
 python_version = "3.8"
+

@@ -1,0 +1,6 @@
+.__pycache__
+.VScode
+.DS_Store
+secret.py
+secret*.py
+Pipfile.lock

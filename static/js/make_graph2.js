@@ -81,16 +81,48 @@ function make_value_arr_for_key(data, keys, key, players, stage, seasons){
 
 
 function make_traces(data){
- let t_array=[]
- let value_arrays=[]
+  console.log(sessionStorage.getItem("splayers"), sessionStorage.getItem("sseasons"), sessionStorage.getItem("sstats"));
+
+  if (sessionStorage.getItem("splayers")!==null && 
+      sessionStorage.getItem("sseasons")!==null &&
+      sessionStorage.getItem("splayers")!==null){
+  console.log("set variables");
+
+ var t_array=[]
+ var value_arrays=[]
  //var selectBox = document.getElementsById('fm_delivery_or_collection');
  //season=GetSelectValues(selectBox ));
  let key="season";
  let key2="points";
- let players=["Kevin Durant", "Kobe Bryant", "LeBron James"];
- let stage="Regular_Season";
- let seasons=["2009 - 2010", "2010 - 2011", "2011 - 2012"];
- let key_array = [
+ var players=JSON.parse(sessionStorage.getItem("splayers"));
+ var stage="Regular_Season";
+
+ var seasons=JSON.parse(sessionStorage.getItem("sseasons"));
+ console.log(seasons)
+ var key_array = JSON.parse(sessionStorage.getItem("sstats"));
+ 
+  let this_key="season";
+
+  let valuesX=seasons;
+
+
+   }
+  else
+  {console.log("null") 
+     
+      
+
+
+ var t_array=[]
+ var value_arrays=[]
+ //var selectBox = document.getElementsById('fm_delivery_or_collection');
+ //season=GetSelectValues(selectBox ));
+ var key="season";
+ var key2="points";
+ var players=["Kevin Durant", "Kobe Bryant", "LeBron James"];
+ var stage="Regular_Season";
+ var seasons=["2009 - 2010", "2010 - 2011", "2011 - 2012"];
+ var key_array = [
   "assists", "blocks", 
   "defensive_rebounds", "field_goal_attempts", "field_goals_made", "free_throw_attempts",
   "free_throws_made", "games_played", "offensive_rebounds", "minutes_played",  
@@ -100,7 +132,7 @@ function make_traces(data){
   let this_key="season";
 
   let valuesX=seasons;
-
+};
 combos = [] //or combos = new Array(2);
 thisX=""
 combos = [] //or combos = new Array(2);
@@ -169,7 +201,7 @@ function getseasons(){
   
   console.log(selectedSeasons);
   sessionStorage.setItem("sseasons", JSON.stringify(selectedSeasons));
-  console.log(JSON.parse(sessionStorage.getItem("sseasons")));
+
 };
 
 function getplayers(){
@@ -181,7 +213,7 @@ function getplayers(){
   }
   console.log(selectedPlayers)
   sessionStorage.setItem("splayers", JSON.stringify(selectedPlayers));
-  console.log(JSON.parse(sessionStorage.getItem("splayers")));
+ 
 
 
 };
@@ -195,7 +227,7 @@ function getstats(){
   
   console.log(selectedStats)
   sessionStorage.setItem("sstats", JSON.stringify(selectedStats));
-  console.log(JSON.parse(sessionStorage.getItem("sstats")));
+
 };
 
 function thisload(){

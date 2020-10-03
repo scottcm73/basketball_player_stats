@@ -88,7 +88,10 @@ function make_traces(data){
 
   if (sessionStorage.getItem("splayers")!==null && 
       sessionStorage.getItem("sseasons")!==null &&
-      sessionStorage.getItem("splayers")!==null){
+      sessionStorage.getItem("splayers")!==null &&
+      sessionStorage.getItem("sstages")!==null
+      
+      ){
   console.log("set variables");
 
  var t_array=[]
@@ -98,7 +101,7 @@ function make_traces(data){
  let key="season";
  let key2="points";
  var players=JSON.parse(sessionStorage.getItem("splayers"));
- var stages="Regular_Season";
+ var stages=JSON.parse(sessionStorage.getItem("sstages"));
 
  var seasons=JSON.parse(sessionStorage.getItem("sseasons"));
  console.log(seasons)
@@ -265,14 +268,25 @@ function getstats(){
 };
 function getstages(){
   var selectedStages=[]
-  // This runs differently because values for both is an array.
+  var sel = document.getElementById('stages');
+  
+  if (sel.options[sel.selectedIndex].value==="Both"){
+    var i;
+    for (i = 0; i < sel.length; i++) {
+        selectedStages.push(sel.options[i].value)
+    }
+    //Removes first option value from list of selected options values. So, "Both" is not in the list.
+    selectedStages.shift();
+  }else{
   for (var stoption of d3.select('#stages').property("selectedOptions")){
-    
+    if (stoption.value!="Both"){
     selectedStages.push(stoption.value)
-    
+    }
   };
+}
   console.log(selectedStages)
-  sessionStorage.setItem("sstats", JSON.stringify(selectedStages));
+  sessionStorage.setItem("sstages", JSON.stringify(selectedStages));
+
 };
 function doreload(){
   window.location.reload()
@@ -319,7 +333,7 @@ function thisload(){
     populate_option_selector(sid, optionsData)
 
     optionsData=[
-      {value: ["Regular_Season", "Playoffs"], text: "Both Regular Season & Playoffs"},
+      {value: ["Both"], text: "Both Regular Season & Playoffs"},
       {value: "Regular_Season", text: "Regular Season"},
       {value: "Playoffs", text: "Playoffs"}
     ]

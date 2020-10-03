@@ -34,8 +34,16 @@
     
  
     </select> 
+    <label for="sm_stats">Choose stage(s): </label>
+    <select name="stages" class="selectpicker" id="stages" multiple size="3" onchange="getstages()">
+    </select> 
+
 
  <button type="button" onclick="doreload()">Make Graph</button> 
+<br>
+<br>
+Select one or multiple players, one or multiple seasons, one or multiple stages, and one or multiple stages (Regular Season, Playoffs, or Both Regular Season & Playoffs).
+Then, click on the Make Graph button.
 <br>
 Hold down CTRL (PC) or Command (Mac) to select multiple. </h4>
 </div>

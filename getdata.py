@@ -1,19 +1,23 @@
 from sqlalchemy import create_engine, Column, Integer, String, Float, Date
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import sessionmaker, relationship
-# from secret2 import USER, PASSWORD,  HOST, PORT, DATABASE, DIALECT, DRIVER, CODEWORD
+from secret import USER, PASSWORD,  HOST, PORT, DATABASE, DIALECT, DRIVER, CODEWORD
 import pymysql
 import json
 import datetime
 import os
 
-USER=os.environ["USER"]
-PASSWORD=os.environ["PASSWORD"]
-HOST=os.environ["HOST"]
-PORT=os.environ["PORT"]
-DATABASE=os.environ["DATABASE"]
-DIALECT=os.environ["DIALECT"]
-DRIVER=os.environ["DRIVER"]
+# Use instead of secret.py on heroku
+
+# USER=os.environ["USER"]
+# PASSWORD=os.environ["PASSWORD"]
+# HOST=os.environ["HOST"]
+# PORT=os.environ["PORT"]
+# DATABASE=os.environ["DATABASE"]
+# DIALECT=os.environ["DIALECT"]
+# DRIVER=os.environ["DRIVER"]
+
+
 
 SQALCHEMY_DATABASE_URI = f"{DIALECT}+{DRIVER}://{USER}:{PASSWORD}@{HOST}/{DATABASE}"
 global Base, session

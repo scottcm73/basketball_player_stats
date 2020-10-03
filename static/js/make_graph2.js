@@ -139,18 +139,23 @@ function make_traces(data){
 combos = [] //or combos = new Array(2);
 thisX=""
 combos = [] //or combos = new Array(2);
+for(var k=0; k < stages.length; k++)
+{
 
 for(var i = 0; i < seasons.length; i++)
 { 
+  
      for(var j = 0; j < players.length; j++)
      {
         //you would access the element of the array as array1[i] and array2[j]
         //create and array with as many elements as the number of arrays you are to combine
-        var thisX=seasons[i] + " -- " + players[j]
+        var thisX=seasons[i] + " -- " + stages[k] + " -- " + players[j]
         //add them in
         //you could have as many dimensions as you need
         combos.push(thisX)
      }
+  
+}
 }
 console.log(combos)
   var valuesY

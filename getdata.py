@@ -1,7 +1,7 @@
 from sqlalchemy import create_engine, Column, Integer, String, Float, Date
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import sessionmaker, relationship
-from secret import USER, PASSWORD,  HOST, PORT, DATABASE, DIALECT, DRIVER, CODEWORD
+from secret import USER, PASSWORD,  HOST, PORT, DATABASE, DIALECT, DRIVER
 import pymysql
 import json
 import datetime

@@ -15,37 +15,80 @@
     <h1 align="center">NBA Player Stats</h1>
     <br>
     <div align="center">
-    <h4><label for="players">Choose player(s): </label>
-    
-    <select name="sm_players" class="selectpicker" id="players"  multiple size="5" onchange="getplayers()">
-    
+    <h4>
+    <table>
+        <tr>
+            <td align="left">
+                <label for="players">Choose player(s): </label>
+            </td>
+            <td align="right">
+                <select name="sm_players" class="selectpicker" id="players"  multiple size="5" onchange="getplayers()">
         
-    </select> 
-   
-    <label for="sm_seasons">Choose season(s): </label>
-    
-<select name="seasons" class="selectpicker" id="seasons" multiple size="5" onchange="getseasons()">
+                </select> 
+
+            </td>
+            <td align="left">
+                <label for="sm_seasons">Choose season(s): </label>
+            </td>
+            <td align="left">
+                <select name="seasons" class="selectpicker" id="seasons" multiple size="5" onchange="getseasons()">
     
       
-    </select> 
-    
-    <label for="sm_stats">Choose stats: </label>
-    <select name="stats" class="selectpicker" id="stats" multiple size="5" onchange="getstats()">
+                </select> 
+
+            </td>
+        </tr>
+        <tr>
+            <td align="left">
+                <label for="sm_stats">Choose stats: </label>
+            </td>
+            <td align="right">
+                <select name="stats" class="selectpicker" id="stats" multiple size="5" onchange="getstats()">
     
  
-    </select> 
-    <label for="sm_stats">Choose stage(s): </label>
-    <select name="stages" class="selectpicker" id="stages" multiple size="3" onchange="getstages()">
-    </select> 
+                </select> 
+
+            </td>
+            <td align="left" >
+                <label for="sm_stats">Choose stage(s): </label>
+            </td>
+            <td align="left" valign="bottom">
+                <select name="stages" class="selectpicker" id="stages" multiple size="3" onchange="getstages()">
+                </select> 
+
+            </td>
+        </tr>
+    </table>
+    
+    
+
+   
+    
+    
+
+    <br>
+    <br>
+    
+    
+    
 
 
  <button type="button" onclick="doreload()">Make Graph</button> 
+ <table width="60%"><tr><td>
+
+
 <br>
 <br>
-Select one or multiple players, one or multiple seasons, one or multiple stages, and one or multiple stages (Regular Season, Playoffs, or Both Regular Season & Playoffs).
+Select one or multiple players, one or multiple seasons, one or multiple stages, 
+and one or multiple stages (Regular Season, Playoffs, or Both Regular Season & Playoffs).
+<br>
 Then, click on the Make Graph button.
 <br>
-Hold down CTRL (PC) or Command (Mac) to select multiple. </h4>
+Hold down CTRL (PC) or Command (Mac) to select multiple. 
+<br>
+After a graph is made all previous selections are erased.
+</td></tr></table>
+</h4>
 </div>
     <div id="myDiv"></div>      
   

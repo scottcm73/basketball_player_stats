@@ -88,7 +88,7 @@ function make_traces(data){
 
   if (sessionStorage.getItem("splayers")!==null && 
       sessionStorage.getItem("sseasons")!==null &&
-      sessionStorage.getItem("splayers")!==null &&
+      sessionStorage.getItem("sstats")!==null &&
       sessionStorage.getItem("sstages")!==null
       
       ){
@@ -200,7 +200,10 @@ console.log(combos)
       hovermode:'closest',};
   
   Plotly.newPlot('myDiv', data, layout);
-
+  sessionStorage.removeItem('sstats');
+  sessionStorage.removeItem('splayers');
+  sessionStorage.removeItem('sseasons');
+  sessionStorage.removeItem('sstages');
 
 };
 function getseasons(){
@@ -289,7 +292,17 @@ function getstages(){
 
 };
 function doreload(){
+  if (sessionStorage.getItem("splayers")!==null && 
+      sessionStorage.getItem("sseasons")!==null &&
+      sessionStorage.getItem("sstats")!==null &&
+      sessionStorage.getItem("sstages")!==null
+      
+      ){
   window.location.reload()
+      }
+      else{
+      alert("You must select at least on player, one season, one stat, and one stages before clicking on the Make Graph button.")
+      }
 };
 
 

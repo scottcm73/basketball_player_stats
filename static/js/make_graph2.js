@@ -33,7 +33,10 @@ function make_optionArray(data, key){
 var result = keyArray.map(e=> {
   return {value: e, text: e}
 })
+if (key != "player"){
+  console.log(key)
   result.unshift({value: "All", text: "All"})
+}
   console.log(result)
 
   return result
@@ -192,45 +195,67 @@ console.log(combos)
 
 };
 function getseasons(){
-  var selectedSeasons = []
-  for (var seaoption of d3.select('#seasons').property("selectedOptions")){
-    if (seaoption.value!="All"){
-    selectedSeasons.push(seaoption.value)
-    }
-  }
+  var sel = document.getElementById('seasons');
+    if (sel.options[sel.selectedIndex].value==="All")
+    { 
+      var selectedSeasons = []
+      var i;
+      for (i = 0; i < sel.length; i++) 
+      {
+          selectedSeasons.push(sel.options[i].value)
+      }
+      selectedSeasons.shift();
   
-  console.log(selectedSeasons);
-  sessionStorage.setItem("sseasons", JSON.stringify(selectedSeasons));
-
-
-};
+    }else{
+    var selectedSeasons = []
+    for (var soption of d3.select('#seasons').property("selectedOptions")){
+      if (soption.value!="All"){
+      selectedSeasons.push(soption.value)
+      }
+    };
+        }
+    console.log(selectedSeasons)
+    sessionStorage.setItem("sseasons", JSON.stringify(selectedSeasons));
+  };
 
 function getplayers(){
-  var selectedPlayers = []
-  for (var poption of d3.select('#players').property("selectedOptions")){
-    if (poption.value!="All"){
-    selectedPlayers.push(poption.value)
-    }
-  }
-  console.log(selectedPlayers)
-  sessionStorage.setItem("splayers", JSON.stringify(selectedPlayers));
+
+    var selectedPlayers = []
+    for (var poption of d3.select('#players').property("selectedOptions")){
+      if (poption.value!="All"){
+      selectedPlayers.push(poption.value)
+      }
+    };
+    
+    console.log(selectedPlayers)
+    sessionStorage.setItem("splayers", JSON.stringify(selectedPlayers))
+  };
+  
  
   
 
-};
+
 function getstats(){
+  var sel = document.getElementById('stats');
   var selectedStats = []
+  if (sel.options[sel.selectedIndex].value==="All")
+  { 
+    var i;
+    for (i = 0; i < sel.length; i++) {
+        selectedStats.push(sel.options[i].value)
+    }
+    selectedStats.shift();
+
+  }else{
+
   for (var soption of d3.select('#stats').property("selectedOptions")){
     if (soption.value!="All"){
     selectedStats.push(soption.value)
     }
+  };
   }
-  
   console.log(selectedStats)
   sessionStorage.setItem("sstats", JSON.stringify(selectedStats));
-
-
-
 };
 function doreload(){
   window.location.reload()

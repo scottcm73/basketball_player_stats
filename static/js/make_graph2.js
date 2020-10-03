@@ -33,7 +33,7 @@ function make_optionArray(data, key){
 var result = keyArray.map(e=> {
   return {value: e, text: e}
 })
-if (key != "player"){
+if (key != "player" & key !="stage"){
   console.log(key)
   result.unshift({value: "All", text: "All"})
 }
@@ -139,6 +139,7 @@ function make_traces(data){
 combos = [] //or combos = new Array(2);
 thisX=""
 combos = [] //or combos = new Array(2);
+// It makes all traces for one stage at a time, Regular Season or Playoffs.
 for(var k=0; k < stages.length; k++)
 {
 
@@ -236,7 +237,7 @@ function getplayers(){
     sessionStorage.setItem("splayers", JSON.stringify(selectedPlayers))
   };
   
- 
+
   
 
 
@@ -262,9 +263,21 @@ function getstats(){
   console.log(selectedStats)
   sessionStorage.setItem("sstats", JSON.stringify(selectedStats));
 };
+function getstages(){
+  var selectedStages=[]
+  // This runs differently because values for both is an array.
+  for (var stoption of d3.select('#stages').property("selectedOptions")){
+    
+    selectedStages.push(stoption.value)
+    
+  };
+  console.log(selectedStages)
+  sessionStorage.setItem("sstats", JSON.stringify(selectedStages));
+};
 function doreload(){
   window.location.reload()
 };
+
 
 function thisload(){
     Plotly.d3.json('/data', function(data)
@@ -302,6 +315,15 @@ function thisload(){
       {value: "turnovers", text: "turnovers"}
         ];
     var sid="#stats"
+
+    populate_option_selector(sid, optionsData)
+
+    optionsData=[
+      {value: ["Regular_Season", "Playoffs"], text: "Both Regular Season & Playoffs"},
+      {value: "Regular_Season", text: "Regular Season"},
+      {value: "Playoffs", text: "Playoffs"}
+    ]
+    sid="#stages"
     populate_option_selector(sid, optionsData)
     
     key=["player", "team", "season"]

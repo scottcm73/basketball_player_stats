@@ -60,11 +60,11 @@ function make_key_array(data){
   }  
   return keys
 };
-function make_value_arr_for_key(data, keys, key, players, stage, seasons){
+function make_value_arr_for_key(data, keys, key, players, stages, seasons){
   values=[]
  
   let newArray = data.filter(function (el) {
-      return players.includes(el["player"]) & stage.includes(el["stage"]) & seasons.includes(el["season"]);
+      return players.includes(el["player"]) & stages.includes(el["stage"]) & seasons.includes(el["season"]);
     });
  
   Object.keys(newArray).forEach(k => {
@@ -98,7 +98,7 @@ function make_traces(data){
  let key="season";
  let key2="points";
  var players=JSON.parse(sessionStorage.getItem("splayers"));
- var stage="Regular_Season";
+ var stages="Regular_Season";
 
  var seasons=JSON.parse(sessionStorage.getItem("sseasons"));
  console.log(seasons)
@@ -123,7 +123,7 @@ function make_traces(data){
  var key="season";
  var key2="points";
  var players=["Kevin Durant", "Kobe Bryant", "LeBron James"];
- var stage=["Regular_Season", "Playoffs"];
+ var stages=["Regular_Season", "Playoffs"];
  var seasons=["2009 - 2010", "2010 - 2011", "2011 - 2012"];
  var key_array = [
   "assists", "blocks", 
@@ -141,7 +141,7 @@ thisX=""
 combos = [] //or combos = new Array(2);
 
 for(var i = 0; i < seasons.length; i++)
-{
+{ 
      for(var j = 0; j < players.length; j++)
      {
         //you would access the element of the array as array1[i] and array2[j]
@@ -157,7 +157,7 @@ console.log(combos)
   for (key in key_array){
 
   console.log(key_array[key])
-  valuesY=make_value_arr_for_key(data, keys, key_array[key], players, stage, seasons);
+  valuesY=make_value_arr_for_key(data, keys, key_array[key], players, stages, seasons);
   // let layout = {
   // width: 1600,
   // 

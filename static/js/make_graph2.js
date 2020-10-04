@@ -283,7 +283,7 @@ function doreload() {
   ) {
       window.location.reload()
   } else {
-      alert("You must select at least on player, one season, one stat, and one stages before clicking on the Make Graph button.")
+      alert("You must select at least one player, one season, one stat, and one stages before clicking on the Make Graph button.")
   }
 };
 

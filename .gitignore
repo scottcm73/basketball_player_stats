@@ -4,3 +4,4 @@
 secret.py
 secret*.py
 Pipfile.lock
+config.py

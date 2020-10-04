@@ -1,33 +1,42 @@
 # Basketball Player Stats
 
-This Flask application will use player basketball player statistics from Kaggle.com. It will also use MySQL, and plotly.js.
+This Flask application uses basketball player statistics from Kaggle.com. It also uses MySQL, Flask, and plotly.js.
+
+![Test Image 1](https://github.com/scottcm73/basketball_player_stats/static/images/maingraph.png)
 
 ## Getting Started
-The data is in a csv file in the resources folder. Pandas will be used to insert the data into a database. 
+The data is in a csv file in the resources folder. Pandas was used to insert the data into a database. 
 
 ### Prerequisites
 
-Query results will return json strings.
+Pandas was used only to insert the data into the mysql database. Flask and sqlalchemy are used to access the database.
+The database is MySQL. However other sql databases could be utilized with changes to the connection string. 
 
 
 ### Installing
 
-The required files will eventually have to be installed on a server that can run Flask. 
+First, pipenv install is run to install the necessary files. Then, database_create.py is run by itself to put the data from the csv file into the database. The connection string variables are taken from the config.py file. This file is not in the github reposity for security reasons. However, if you have access to your own server, it should be ftped into the proper folder. 
 
+If you do choose to run on heroku, you will need to eliminate the import config line in getdata.py and in database_create.py.
+Instead of config.py, heroku requires you to manually put in the environmental variables. Heroku will also require uncommenting the sections of commented code related to getting the environmental variables from heroku.
 
+If you have your own rented linux server and website, you will need to run the commands pipenv install, pipenv shell, and python app.py. I have chosen not to use gunicorn, and found that it has issues with gunicorn.  
 
 ## Running the tests
 
-Testing will be performed locally before deployment.
+Testing should be performed locally before deployment. I deployed on a rented virtual private server from bluehost. 
+
+For testing, comment out the line in app.py, app.run(host= 0.0.0.0:5001), and instead put in line app.run().
+This will run the app locally at 127.0.0.1:5000. 
 
 
 ## Deployment
 
-Deployment will be on a Bluehost VPS running Centos.
+Deployment of the app is on a Bluehost VPS running Centos. 
 
 ## Built With
 
-*  Pandas, numpy, flask, sqlalchemy, plotly
+*  Pandas, numpy, flask, sqlalchemy, plotly, and D3
 
  
 

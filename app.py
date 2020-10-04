@@ -20,4 +20,3 @@ def hello_world2():
 app.run(debug=True)
 if __name__ == "__main__":
     # execute only if run as a script
-    app.run(debug=True)

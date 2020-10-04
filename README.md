@@ -2,7 +2,7 @@
 
 This Flask application uses basketball player statistics from Kaggle.com. It also uses MySQL, Flask, and plotly.js.
 
-![Test Image 1](https://github.com/scottcm73/basketball_player_stats/static/images/maingraph.png)
+![alt text](https://github.com/scottcm73/basketball_player_stats/static/images/blob/master/images/maingraph.png?raw=true)
 
 ## Getting Started
 The data is in a csv file in the resources folder. Pandas was used to insert the data into a database. 

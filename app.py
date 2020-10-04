@@ -19,4 +19,5 @@ def hello_world2():
  # execute only if run as a script
 
 if __name__ == "__main__":
-   app.run(host='0.0.0.0', port=5001)
+    app.run()
+#   app.run(host='0.0.0.0', port=5001)

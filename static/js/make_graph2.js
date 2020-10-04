@@ -28,16 +28,16 @@ function make_optionArray(data, key){
   
   var keyArray=new Set(keyArray)
   keyArray = [...keyArray]; 
-  console.log(keyArray)
+
 
 var result = keyArray.map(e=> {
   return {value: e, text: e}
 })
 if (key != "player" & key !="stage"){
-  console.log(key)
+
   result.unshift({value: "All", text: "All"})
 }
-  console.log(result)
+
 
   return result
 };
@@ -84,7 +84,7 @@ function make_value_arr_for_key(data, keys, key, players, stages, seasons){
 
 
 function make_traces(data){
-  console.log(sessionStorage.getItem("splayers"), sessionStorage.getItem("sseasons"), sessionStorage.getItem("sstats"));
+
 
   if (sessionStorage.getItem("splayers")!==null && 
       sessionStorage.getItem("sseasons")!==null &&
@@ -92,7 +92,7 @@ function make_traces(data){
       sessionStorage.getItem("sstages")!==null
       
       ){
-  console.log("set variables");
+
 
  var t_array=[]
  var value_arrays=[]
@@ -104,7 +104,7 @@ function make_traces(data){
  var stages=JSON.parse(sessionStorage.getItem("sstages"));
 
  var seasons=JSON.parse(sessionStorage.getItem("sseasons"));
- console.log(seasons)
+ 
  var key_array = JSON.parse(sessionStorage.getItem("sstats"));
  
   let this_key="season";
@@ -114,7 +114,7 @@ function make_traces(data){
 
    }
   else
-  {console.log("null") 
+  {
      
       
 
@@ -161,11 +161,11 @@ for(var i = 0; i < seasons.length; i++)
   
 }
 }
-console.log(combos)
+
   var valuesY
   for (key in key_array){
 
-  console.log(key_array[key])
+
   valuesY=make_value_arr_for_key(data, keys, key_array[key], players, stages, seasons);
   // let layout = {
   // width: 1600,
@@ -184,7 +184,7 @@ console.log(combos)
   
   t_array.push(trace1)
 };
-  console.log(t_array);
+
   var data = t_array;
   
   var layout = {barmode: 'group', 
@@ -226,7 +226,7 @@ function getseasons(){
       }
     };
         }
-    console.log(selectedSeasons)
+ 
     sessionStorage.setItem("sseasons", JSON.stringify(selectedSeasons));
   };
 
@@ -239,7 +239,7 @@ function getplayers(){
       }
     };
     
-    console.log(selectedPlayers)
+  
     sessionStorage.setItem("splayers", JSON.stringify(selectedPlayers))
   };
   
@@ -266,7 +266,7 @@ function getstats(){
     }
   };
   }
-  console.log(selectedStats)
+
   sessionStorage.setItem("sstats", JSON.stringify(selectedStats));
 };
 function getstages(){
@@ -287,7 +287,7 @@ function getstages(){
     }
   };
 }
-  console.log(selectedStages)
+
   sessionStorage.setItem("sstages", JSON.stringify(selectedStages));
 
 };
@@ -312,7 +312,7 @@ function thisload(){
       {
           
         
-        console.log(data)
+
   
        
           let keys=make_key_array(data)
@@ -320,7 +320,7 @@ function thisload(){
           make_traces(data)
         
 
-    console.log(data)
+
     var optionsData=[
       {value: "All", text: "All"},
       {value: "assists", text: "assists"},

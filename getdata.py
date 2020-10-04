@@ -7,7 +7,7 @@ import json
 import datetime
 import os
 
-# Use instead of secret.py on heroku
+# Use instead of config.py on heroku
 
 # USER=os.environ["USER"]
 # PASSWORD=os.environ["PASSWORD"]
@@ -16,6 +16,7 @@ import os
 # DATABASE=os.environ["DATABASE"]
 # DIALECT=os.environ["DIALECT"]
 # DRIVER=os.environ["DRIVER"]
+# SECRET_KEY=os.environ["SECRET_KEY"]
 
 
 
@@ -69,6 +70,7 @@ class PlayerStats(Base):
 
 
 def make_dict():
+    # Only gets NBA players, but data has many leagues.
     all_player_stats=session.query(PlayerStats).filter(PlayerStats.league=="NBA").all()
     the_dict=DictMixIn
     this_dict=[]
@@ -79,13 +81,8 @@ def make_dict():
         
     return this_dict
 
-
-
-
-
-
 engine = create_engine(
-    SQALCHEMY_DATABASE_URI, echo=True
+    SQALCHEMY_DATABASE_URI, echo=False
     )
 
 Session=sessionmaker(bind=engine)

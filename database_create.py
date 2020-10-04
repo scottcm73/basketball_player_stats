@@ -3,7 +3,7 @@ import numpy as np
 import pymysql
 import os
 from sqlalchemy import create_engine
-from secret import USER, PASSWORD,  HOST, PORT, DATABASE, DIALECT, DRIVER, CODEWORD
+from config import USER, PASSWORD,  HOST, PORT, DATABASE, DIALECT, DRIVER, SECRET_KEY
 
 
 # This creates a single-table database and uses information from secret.py in connection string.

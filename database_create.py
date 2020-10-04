@@ -3,11 +3,20 @@ import numpy as np
 import pymysql
 import os
 from sqlalchemy import create_engine
+#The following would be erased if installed on heroku.
 from config import USER, PASSWORD, HOST, PORT, DATABASE, DIALECT, DRIVER, SECRET_KEY
 
 
-# This creates a single-table database and uses information from secret.py in connection string.
-# secret.py and secret2.py are ignored in GitHub.
+# Use instead of config.py on heroku
+
+# USER=os.environ["USER"]
+# PASSWORD=os.environ["PASSWORD"]
+# HOST=os.environ["HOST"]
+# PORT=os.environ["PORT"]
+# DATABASE=os.environ["DATABASE"]
+# DIALECT=os.environ["DIALECT"]
+# DRIVER=os.environ["DRIVER"]
+# SECRET_KEY=os.environ["SECRET_KEY"]
 
 SQALCHEMY_DATABASE_URI = f"{DIALECT}+{DRIVER}://{USER}:{PASSWORD}@{HOST}/{DATABASE}"
 

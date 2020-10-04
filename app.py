@@ -4,20 +4,20 @@ from getdata import make_dict
 
 app = Flask(__name__)
 
-@app.route('/data')
 
+@app.route("/data")
 def hello_world():
-    the_dict=make_dict()
+    the_dict = make_dict()
     return jsonify(the_dict)
 
-@app.route('/')
 
+@app.route("/")
 def hello_world2():
-    
-    
-    return render_template("main.html" )
- # execute only if run as a script
+
+    return render_template("main.html")
+
+
+# execute only if run as a script
 
 if __name__ == "__main__":
-    app.run()
-#   app.run(host='0.0.0.0', port=5001)
+    app.run(host="0.0.0.0", port=5001)

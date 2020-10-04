@@ -1,15 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-
 <meta charset="UTF-8">
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-
-
 <script src="{{ url_for('static', filename='js/plotly-latest.min.js') }}"></script>
 <script src="{{ url_for('static', filename='js/d3.v6.min.js') }}"></script>
     <title>NBA Player Stats</title>
-
 </head>
 <body>
     <h1 align="center">NBA Player Stats</h1>
@@ -22,18 +18,14 @@
                 <label for="players">Choose player(s): </label>
             </td>
             <td align="right">
-                <select name="sm_players" class="selectpicker" id="players"  multiple size="5" onchange="getplayers()">
-        
+                <select name="sm_players" class="selectpicker" id="players"  multiple size="5" onchange="getplayers()">       
                 </select> 
-
             </td>
             <td align="left">
                 <label for="sm_seasons">Choose season(s): </label>
             </td>
             <td align="left">
                 <select name="seasons" class="selectpicker" id="seasons" multiple size="5" onchange="getseasons()">
-    
-      
                 </select> 
 
             </td>
@@ -44,8 +36,6 @@
             </td>
             <td align="right">
                 <select name="stats" class="selectpicker" id="stats" multiple size="5" onchange="getstats()">
-    
- 
                 </select> 
 
             </td>
@@ -55,28 +45,14 @@
             <td align="left" valign="bottom">
                 <select name="stages" class="selectpicker" id="stages" multiple size="3" onchange="getstages()">
                 </select> 
-
             </td>
         </tr>
     </table>
-    
-    
-
-   
-    
-    
 
     <br>
     <br>
-    
-    
-    
-
-
  <button type="button" onclick="doreload()">Make Graph</button> 
  <table width="60%"><tr><td>
-
-
 <br>
 <br>
 Select one or multiple players, one or multiple seasons, one or multiple stages, 
@@ -91,16 +67,12 @@ After a graph is made, all previous selections are erased.
 </h4>
 </div>
     <div id="myDiv"></div>      
-  
      <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-
-
     <script src="{{ url_for('static', filename='js/make_graph2.js') }}" onload="thisload()"></script>
     <title>NBA Player Stats</title>
-
 </body>
 </html>

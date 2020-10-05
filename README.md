@@ -24,6 +24,7 @@ I recommend using heroku for deployment. You will need to create a requirements.
 
 If you choose not to use heroku, the config.py file only needs the name of each of the variables in all caps and set equal to something in quotes. Again this must not be included in the repository for security reasons, but it is needed for local testing.
 
+I used the heroku_branch for deployment and the master branch for local testing.
 
 
 ## Running the tests

@@ -9,14 +9,14 @@ import os
 
 # Use instead of config.py on heroku
 
-# USER=os.environ["USER"]
-# PASSWORD=os.environ["PASSWORD"]
-# HOST=os.environ["HOST"]
-# PORT=os.environ["PORT"]
-# DATABASE=os.environ["DATABASE"]
-# DIALECT=os.environ["DIALECT"]
-# DRIVER=os.environ["DRIVER"]
-# SECRET_KEY=os.environ["SECRET_KEY"]
+USER=os.environ["USER"]
+PASSWORD=os.environ["PASSWORD"]
+HOST=os.environ["HOST"]
+PORT=os.environ["PORT"]
+DATABASE=os.environ["DATABASE"]
+DIALECT=os.environ["DIALECT"]
+DRIVER=os.environ["DRIVER"]
+SECRET_KEY=os.environ["SECRET_KEY"]
 
 
 SQALCHEMY_DATABASE_URI = f"{DIALECT}+{DRIVER}://{USER}:{PASSWORD}@{HOST}/{DATABASE}"

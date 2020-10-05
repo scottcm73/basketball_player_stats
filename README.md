@@ -20,19 +20,23 @@ First, pipenv install is run to install the necessary files. Then, database_crea
 If you do choose to run on heroku, you will need to eliminate the import config line in getdata.py and in database_create.py.
 Instead of config.py, heroku requires you to manually put in the environmental variables. Heroku will also require uncommenting the sections of commented code related to getting the environmental variables from heroku.
 
-If you have your own rented linux server and website, you will need to run the commands pipenv install, pipenv shell, and python app.py. I have chosen not to use gunicorn, and found that it has issues with gunicorn.  
+I recommend using heroku for deployment. You will need to create a requirements.txt file from a pipfile. You will need to install pipenv_to_requirements with pip. You will then need to remove Pipfile and Pipfile.lock from your repository, because these overide requirements.txt. Instead of a config.py file, you will need to manually put in the configuration variables in heroku settings. I included an empty config.py file to show you which variables to put in.
+
+If you choose not to use heroku, the config.py file only needs the name of each of the variables in all caps and set equal to something in quotes. Again this must not be included in the repository for security reasons, but it is needed for local testing.
+
+
 
 ## Running the tests
 
-Testing should be performed locally before deployment. I deployed on a rented virtual private server from bluehost. 
+Testing should be performed locally before deployment. I deployed on heroku.com. 
 
 For testing, comment out the line in app.py, app.run(host= 0.0.0.0:5001), and instead put in line app.run().
-This will run the app locally at 127.0.0.1:5000. 
+This will run the app locally at 127.0.0.1:5000 by default.
 
 
 ## Deployment
 
-Deployment of the app is on a Bluehost VPS running Centos. 
+Deployment of the app is on heroku. The requirements.txt works best when it is not frozen. I ran into issues with the requirements frozen.  
 
 ## Built With
 

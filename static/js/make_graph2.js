@@ -293,7 +293,7 @@ function thisload() {
   Plotly.d3.json('/data', function(data)
       // data is an object with an array of dictionaries, not an actual json
       {
-
+          let keys = make_key_array(data)
           make_traces(data)
 
           var optionsData = [{

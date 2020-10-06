@@ -4,19 +4,19 @@ import pymysql
 import os
 from sqlalchemy import create_engine
 #The following would be erased if installed on heroku.
-from config import USER, PASSWORD, HOST, PORT, DATABASE, DIALECT, DRIVER, SECRET_KEY
+#from config import USER, PASSWORD, HOST, PORT, DATABASE, DIALECT, DRIVER, SECRET_KEY
 
 
 # Use instead of config.py on heroku
 
-# USER=os.environ["USER"]
-# PASSWORD=os.environ["PASSWORD"]
-# HOST=os.environ["HOST"]
-# PORT=os.environ["PORT"]
-# DATABASE=os.environ["DATABASE"]
-# DIALECT=os.environ["DIALECT"]
-# DRIVER=os.environ["DRIVER"]
-# SECRET_KEY=os.environ["SECRET_KEY"]
+USER=os.environ["USER"]
+PASSWORD=os.environ["PASSWORD"]
+HOST=os.environ["HOST"]
+PORT=os.environ["PORT"]
+DATABASE=os.environ["DATABASE"]
+DIALECT=os.environ["DIALECT"]
+DRIVER=os.environ["DRIVER"]
+SECRET_KEY=os.environ["SECRET_KEY"]
 
 SQALCHEMY_DATABASE_URI = f"{DIALECT}+{DRIVER}://{USER}:{PASSWORD}@{HOST}/{DATABASE}"
 

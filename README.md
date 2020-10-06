@@ -1,26 +1,27 @@
 # Basketball Player Stats
 
-This Flask application uses basketball player statistics from Kaggle.com. It also uses MySQL, Flask, and plotly.js.
+This application gets data from a database using python and makes it into graphs dynanically using JavaScript. The full-stack application employs both front-end HTML and JavaScript and back-end data from a MySQL database using the python modules Flask and sql alchemy. Graphs are produced with the JavaScript module plotly.js.
+
+The data originally comes from Kaggle.com. Javascript and Plotly.js convert the data into graphs. Users can select one or multiple players, one or multiple seasons, one or multiple statistics, and choose regular season, playoffs, or both regular season and playoffs. The data is filtered in javascript and maded into  graphs with plotly.js. 
 
 ![alt text](https://github.com/scottcm73/basketball_player_stats/blob/master/static/images/maingraph.png)
 
 ## Getting Started
-The data is in a csv file in the resources folder. Pandas was used to insert the data into a database. 
+The data came originally in a csv file in the resources folder. The python module pandas was used to insert the data into a MySQL database. 
 
 ### Prerequisites
 
-Pandas was used only to insert the data into the mysql database. Flask and sqlalchemy are used to access the database.
-The database is MySQL. However other sql databases could be utilized with changes to the connection string. 
+Pandas, Flask, sql alchemy, and MySQL server need to be install locally for testing. Although the database is MySQL, other sql databases could be utilized with changes to the connection string. 
 
 
 ### Installing
 
-First, pipenv install is run to install the necessary files. Then, database_create.py is run by itself to put the data from the csv file into the database. The connection string variables are taken from the config.py file. This file is not in the github reposity for security reasons. However, if you have access to your own server, it should be ftped into the proper folder. 
+Required modules must be installed with pip before running the app. Next, pipenv install is run to install the necessary files. Then, database_create.py is run by itself to put the data from the csv file into the database. The connection string variables are taken from the config.py file. This file is not in the github reposity for security reasons. However, if you have access to your own server, it should be ftped into the proper folder. 
 
 If you do choose to run on heroku, you will need to eliminate the import config line in getdata.py and in database_create.py.
 Instead of config.py, heroku requires you to manually put in the environmental variables. Heroku will also require uncommenting the sections of commented code related to getting the environmental variables from heroku.
 
-I recommend using heroku for deployment. You will need to create a requirements.txt file from a pipfile. You will need to install pipenv_to_requirements with pip. You will then need to remove Pipfile and Pipfile.lock from your repository, because these overide requirements.txt. Instead of a config.py file, you will need to manually put in the configuration variables in heroku settings. I included an empty config.py file to show you which variables to put in.
+I recommend using heroku for deployment. You will need to create a requirements.txt file from a pipfile. For this, you will need to install pipenv_to_requirements with pip. You will then have to remove Pipfile and Pipfile.lock from the heroku branch of your repository, because these overide requirements.txt. Instead of a config.py file, you will need to manually put in the configuration variables in heroku settings. 
 
 If you choose not to use heroku, the config.py file only needs the name of each of the variables in all caps and set equal to something in quotes. Again this must not be included in the repository for security reasons, but it is needed for local testing.
 

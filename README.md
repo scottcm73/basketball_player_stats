@@ -38,13 +38,13 @@ This will run the app locally at 127.0.0.1:5000 by default.
 
 ## Deployment
 
-Deployment of the app is on heroku. The requirements.txt works best when it is not frozen. I ran into issues with the requirements frozen.  
+Deployment of the app is on heroku. The requirements.txt works best when it is not frozen. I ran into issues with the requirements frozen. Heroku proved
+to be the simplest host. I put the MySQL database on a server that I rent from bluehost.com. I originally intended to host the app on this server, but I could not install the necessary nginx without loosing technical support. The app is available at: https://scottmc-bballstats.herokuapp.com/.
 
 ## Built With
 
 *  Pandas, numpy, flask, sqlalchemy, plotly, and D3
 
- 
 
 ## Versioning
 
@@ -54,8 +54,6 @@ Github was used for versioning. For the versions available, see https://github.c
 ## Author
 
 * **Scott McMahan** 
-
-
 
 ## License
 

@@ -41,7 +41,24 @@ function make_optionArray(data, key) {
 };
 
 
+function make_key_array(data) {
+  keys = []
+  for (let obj in data) {
+      if (data.hasOwnProperty(obj)) {
+          for (let key in data[obj]) {
+              if (data[obj].hasOwnProperty(key)) {
+                  // Only adds first 31 keys starting at 0
+                  if (keys.length < 31) {
+                      keys.push(key);
+                  }
 
+              }
+          }
+
+      }
+  }
+  return keys
+};
 
 function make_value_arr_for_key(data, keys, key, players, stages, seasons) {
   values = []

@@ -80,7 +80,10 @@ function make_value_arr_for_key(data, keys, key, players, stages, seasons) {
 
 
 function make_traces(data) {
-
+    document.getElementById("stats").value = null;
+    document.getElementById("seasons").value = null;
+    document.getElementById("players").value = null;
+    document.getElementById("stages").value = null;
   if (sessionStorage.getItem("splayers") !== null &&
       sessionStorage.getItem("sseasons") !== null &&
       sessionStorage.getItem("sstats") !== null &&
@@ -282,7 +285,7 @@ function doreload() {
       sessionStorage.getItem("sstages") !== null
 
   ) {
-      window.location.reload()
+      make_traces(window.data)
   } else {
       alert("You must select at least one player, one season, one stat, and one stages before clicking on the Make Graph button.")
   }
@@ -293,6 +296,7 @@ function thisload() {
   Plotly.d3.json('/data', function(data)
       // data is an object with an array of dictionaries, not an actual json
       {
+          window.data=data
           let keys = make_key_array(data)
           make_traces(data)
 

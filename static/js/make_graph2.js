@@ -78,7 +78,7 @@ function populate_option_selector(sid, optionsData) {
     return values
   };
   
-  
+  // This function dynamically produces traces.
   function make_traces(data) {
       document.getElementById("stats").value = null;
       document.getElementById("seasons").value = null;
@@ -140,11 +140,11 @@ function populate_option_selector(sid, optionsData) {
         for (var i = 0; i < seasons.length; i++) {
   
             for (var j = 0; j < players.length; j++) {
-                //you would access the element of the array as array1[i] and array2[j]
+                //You would access the element of the array as array1[i] and array2[j]
                 //create and array with as many elements as the number of arrays you are to combine
                 var thisX = seasons[i] + " -- " + stages[k] + " -- " + players[j]
-                //add them in
-                //you could have as many dimensions as you need
+                //Add them in.
+                //You could have as many dimensions as you need.
                 combos.push(thisX)
             }
   
@@ -156,17 +156,9 @@ function populate_option_selector(sid, optionsData) {
   
   
         valuesY = make_value_arr_for_key(data, keys, key_array[key], players, stages, seasons);
-        // let layout = {
-        // width: 1600,
-        // 
-        // barmode: 'group'
-        // };
-        // Plotly.newPlot('myDiv', trace, layout)
         var trace1 = {
             x: combos,
             y: valuesY,
-  
-  
             name: key_array[key],
             type: 'bar'
         };

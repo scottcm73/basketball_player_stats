@@ -1,6 +1,0 @@
-.. getdata.py
-
-getdata.py
-==========
-
-

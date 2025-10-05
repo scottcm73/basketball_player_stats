@@ -1,0 +1,7 @@
+pandas
+numpy
+flask
+sqlalchemy
+pymysql
+gunicorn
+python_version == "3.8.*"
